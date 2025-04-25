@@ -3,29 +3,49 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Write to the wind</title>
+  <title>寫信給風</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=1600&q=80') no-repeat center center fixed;
+      background-size: cover;
+    }
+    .fade-in {
+      animation: fadeIn 1.5s ease-out forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .float {
+      animation: float 4s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+  </style>
 </head>
-<body class="bg-blue-50 text-gray-800">
+<body class="text-gray-800">
   <div class="min-h-screen flex flex-col justify-center items-center px-4">
-    <div class="max-w-md w-full bg-white p-6 rounded-xl shadow-md">
-      <h2 class="text-2xl font-bold text-center mb-4">Write a letter to the wind.</h2>
+    <img src="https://cdn-icons-png.flaticon.com/512/3062/3062634.png" alt="balloon" class="w-12 mb-3 float" />
+    <div class="max-w-md w-full bg-white/70 p-6 rounded-2xl shadow-xl fade-in">
+      <h2 class="text-2xl font-bold text-center mb-4">寫一封信給風</h2>
       <form action="https://formspree.io/f/mnndnqvn" method="POST" class="space-y-4">
         <div>
-          <label class="block text-sm font-medium">Nickname</label>
-          <input type="text" name="nickname" class="w-full border rounded px-3 py-2 mt-1" placeholder="STANDING IN THE WIND" />
+          <label class="block text-sm font-medium">暱稱（選填）</label>
+          <input type="text" name="nickname" class="w-full border rounded px-3 py-2 mt-1 bg-white/80" placeholder="風中的你" />
         </div>
         <div>
-          <label class="block text-sm font-medium">The words hidden deep in the heart.</label>
-          <textarea name="message" required class="w-full border rounded px-3 py-2 mt-1 h-32" placeholder="Turn your thoughts into words..."></textarea>
+          <label class="block text-sm font-medium">想說的話（必填）</label>
+          <textarea name="message" required class="w-full border rounded px-3 py-2 mt-1 h-32 bg-white/80" placeholder="寫下你的心事..."></textarea>
         </div>
         <div>
-          <label class="block text-sm font-medium">Want to hear back? (Please leave your email address)</label>
-          <input type="email" name="email" class="w-full border rounded px-3 py-2 mt-1" placeholder="your@email.com" />
+          <label class="block text-sm font-medium">希望收到回信嗎？（請留下 Email）</label>
+          <input type="email" name="email" class="w-full border rounded px-3 py-2 mt-1 bg-white/80" placeholder="your@email.com" />
         </div>
         <div class="text-center">
-          <button type="submit" class="bg-blue-400 hover:bg-blue-500 text-white px-4 py-2 rounded-full shadow" a href="thankyou.html">Let the wind pass.</a></button>
-          
+          <button type="submit" class="bg-blue-400 hover:bg-blue-500 text-white px-6 py-2 rounded-full shadow transition">🎈 放飛這封信</button>
         </div>
       </form>
     </div>
