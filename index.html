@@ -4,42 +4,73 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>給風的一封信</title>
+
+  <!-- 引入 Tailwind CSS -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+
   <style>
+    /* ✅ 更換背景圖片的區塊：直接替換 URL 就可以 */
     body {
       background: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=1600&q=80') no-repeat center center fixed;
       background-size: cover;
     }
+
+    /* ✅ 淡入動畫設定 */
     .fade-in {
       animation: fadeIn 2s ease-in-out forwards;
     }
+
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
+    /* ✅ 浮動動畫設定（讓氣球上下飄） */
     .float {
       animation: float 4s ease-in-out infinite;
     }
+
     @keyframes float {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-10px); }
     }
   </style>
 </head>
+
 <body class="text-gray-800">
+  <!-- ✅ 如果你想整體文字變成白色，可以將 text-gray-800 改成 text-white -->
   <div class="min-h-screen flex flex-col justify-center items-center text-center px-4 bg-white/60">
+    
+    <!-- 飄浮氣球圖示，可自行更換圖 -->
     <img src="https://cdn-icons-png.flaticon.com/512/3062/3062634.png" alt="balloon" class="w-16 mb-4 float" />
-    <h1 class="text-4xl sm:text-5xl font-bold mb-3 fade-in">給風的一封信</h1>
-    <p class="text-base sm:text-xl mb-6 fade-in">那些無處可去的心事，就讓風知道。<br>
-      <span class="italic text-sm text-gray-600">When no one's there to listen, the wind always is.<br>行き場のない想いは、風に託して。</span>
+
+    <!-- 標題文字 -->
+    <h1 class="text-4xl sm:text-5xl font-bold mb-3 fade-in">
+      給風的一封信
+    </h1>
+
+    <!-- 副標語句區 -->
+    <p class="text-base sm:text-xl mb-6 fade-in">
+      那些無處可去的心事，就讓風知道。<br>
+      <span class="italic text-sm text-gray-600">
+        When no one's there to listen, the wind always is.<br>
+        行き場のない想いは、風に託して。
+      </span>
     </p>
+
+    <!-- 開場引言 -->
     <p class="max-w-xl mb-10 text-base sm:text-lg leading-relaxed fade-in delay-200">
       有些話，無法說出口，也沒人能聽見。<br>
       所以你來到了這裡。<br>
       把那些漂浮著、沒有去處的心事，寫給風吧。<br><br>
       「給風的一封信」願成為你心底最安靜的樹洞。
     </p>
-    <a href="write.html" class="bg-white/70 hover:bg-white text-blue-600 font-semibold py-2 px-6 rounded-full shadow transition fade-in delay-300">✉️ 寫信給風</a>
+
+    <!-- CTA 按鈕 -->
+    <a href="write.html" class="bg-white/70 hover:bg-white text-blue-600 font-semibold py-2 px-6 rounded-full shadow transition fade-in delay-300">
+      ✉️ 寫信給風
+    </a>
+
   </div>
 </body>
 </html>
