@@ -1,24 +1,45 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wind Drift:A letter to the wind</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>給風的一封信</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=1600&q=80') no-repeat center center fixed;
+      background-size: cover;
+    }
+    .fade-in {
+      animation: fadeIn 2s ease-in-out forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .float {
+      animation: float 4s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+  </style>
 </head>
-<body class="bg-blue-50 text-gray-800">
-  <div class="min-h-screen flex flex-col justify-center items-center text-center px-4">
-    <h1 class="text-3xl sm:text-5xl font-bold mb-4">Wind Drift</h1>
-    <p class="italic text-xl text-gray-500">When no one's there to listen, the wind always is.<br></span></p>
-    <p class="max-w-xl mb-10 text-base sm:text-lg leading-relaxed">
-      There are some words that cannot be said<br>and no one can hear them.<br>So you're here.<br>
-      <br>Write down to the wind those thoughts <br>that are floating around<br> and have nowhere to go.<br>
-      <br> Wish the wind can take away the haze in your heart.
+<body class="text-gray-800">
+  <div class="min-h-screen flex flex-col justify-center items-center text-center px-4 bg-white/60">
+    <img src="https://cdn-icons-png.flaticon.com/512/3062/3062634.png" alt="balloon" class="w-16 mb-4 float" />
+    <h1 class="text-4xl sm:text-5xl font-bold mb-3 fade-in">給風的一封信</h1>
+    <p class="text-base sm:text-xl mb-6 fade-in">那些無處可去的心事，就讓風知道。<br>
+      <span class="italic text-sm text-gray-600">When no one's there to listen, the wind always is.<br>行き場のない想いは、風に託して。</span>
     </p>
-    
-
-
-    <a href="write.html" class="bg-blue-400 hover:bg-blue-500 text-white py-2 px-6 rounded-full shadow transition">Chat to Wind</a>
+    <p class="max-w-xl mb-10 text-base sm:text-lg leading-relaxed fade-in delay-200">
+      有些話，無法說出口，也沒人能聽見。<br>
+      所以你來到了這裡。<br>
+      把那些漂浮著、沒有去處的心事，寫給風吧。<br><br>
+      「給風的一封信」願成為你心底最安靜的樹洞。
+    </p>
+    <a href="write.html" class="bg-white/70 hover:bg-white text-blue-600 font-semibold py-2 px-6 rounded-full shadow transition fade-in delay-300">✉️ 寫信給風</a>
   </div>
 </body>
 </html>
