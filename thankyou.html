@@ -1,15 +1,36 @@
-<!DOCTYPE html>
-<html lang="zh-Hant">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Thank You.</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
-</head>
-<body class="bg-blue-50 text-gray-800">
-  <div class="min-h-screen flex flex-col justify-center items-center text-center px-4">
-    <h2 class="text-3xl font-bold mb-4">Your words has gone with the wind.</h2>
-    <p class="text-lg mb-6">Thank you for letting me listen.<br>I hope you feel a little relieved now.</p>
+<!-- 前言 -->
+<p class="text-base italic text-gray-600 mb-4 fade-in">Some words drift for years before they find the wind willing to carry them.</p>
+      <h2 class="text-2xl font-bold mb-3">Your Letter Is Ready to Fly</h2>
+      <!-- 感謝文字 -->
+      <p class="mb-4">Thank you for sharing your heart with the wind. Before we let it go, we invite you to keep this breeze going for others.</p>
+
+      <!-- 支持呼籲段落 -->
+      <div class="mb-6 text-sm text-gray-700">
+        <p>If this letter meant something to you, and you'd like to help the wind carry more voices—</p>
+        <p class="my-2 font-medium">You're warmly welcome to support this quiet project:</p>
+        <p>
+          💙 One-time support → <a href="https://paypal.me/givewindletter" target="_blank" class="text-blue-600 underline">paypal.me/givewindletter</a>
+        </p>
+        <p class="mt-2 italic">There’s no reward. No spotlight. Just kindness, passed on.</p>
+      </div>
+
+      <!-- 最後送出按鈕 -->
+      <form id="finalSendForm" action="https://formspree.io/f/mnndnqvn" method="POST" class="space-y-4">
+        <input type="hidden" name="nickname" id="hiddenNickname" />
+        <input type="hidden" name="message" id="hiddenMessage" />
+        <input type="hidden" name="email" id="hiddenEmail" />
+        <button type="submit" class="bg-blue-400 hover:bg-blue-500 text-white px-6 py-2 rounded-full shadow">
+          ✉️ Send to the Wind
+        </button>
+      </form>
+    </div>
   </div>
+
+  <!-- JS：將 localStorage 的資料填入隱藏欄位 -->
+  <script>
+    document.getElementById('hiddenNickname').value = localStorage.getItem('nickname') || '';
+    document.getElementById('hiddenMessage').value = localStorage.getItem('message') || '';
+    document.getElementById('hiddenEmail').value = localStorage.getItem('email') || '';
+  </script>
 </body>
 </html>
