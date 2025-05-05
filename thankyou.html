@@ -1,15 +1,66 @@
-<!-- 前言 -->
-<p class="text-base italic text-gray-600 mb-4 fade-in">Some words drift for years before they find the wind willing to carry them.</p>
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wind’s Drift Bottle</title>
+
+  <!-- 引入 Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+
+  <style>
+    /* ✅ 更換背景圖片的區塊：直接替換 URL 就可以 */
+    body {
+      background: url('https://raw.githubusercontent.com/HYM715-MING/pic/main/06.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    /* ✅ 淡入動畫設定 */
+    .fade-in {
+      animation: fadeIn 2s ease-in-out forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ✅ 浮動動畫設定（讓氣球上下飄） */
+    .float {
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+  </style>
+</head>
+<body class="text-gray-800">
+  <div class="min-h-screen flex flex-col justify-center items-center px-4">
+    <img src="https://cdn-icons-png.flaticon.com/512/3062/3062634.png" alt="balloon" class="w-12 mb-3 float" />
+    <div class="max-w-md w-full bg-white/80 p-6 rounded-2xl shadow-xl fade-in text-center">
+
+      <!-- 前言 -->
+      <p class="text-base italic text-gray-600 mb-4 fade-in">Some words drift for years before they find the wind willing to carry them.</p>
       <h2 class="text-2xl font-bold mb-3">Your Letter Is Ready to Fly</h2>
       <!-- 感謝文字 -->
       <p class="mb-4">Thank you for sharing your heart with the wind. Before we let it go, we invite you to keep this breeze going for others.</p>
+
+      <!-- 溫柔致謝段落 -->
+      <div class="mb-6 text-sm text-gray-700 leading-relaxed">
+        <p>Your gift, no matter how small, helps keep this little wind moving.<br />
+        It carries warmth across the world, brushing away the quiet heaviness in someone’s heart—<br />
+        letting in just enough light to remind them they’re not alone.</p>
+        <p class="mt-2">Thank you, truly. Because of you, the world feels a little kinder.</p>
+      </div>
 
       <!-- 支持呼籲段落 -->
       <div class="mb-6 text-sm text-gray-700">
         <p>If this letter meant something to you, and you'd like to help the wind carry more voices—</p>
         <p class="my-2 font-medium">You're warmly welcome to support this quiet project:</p>
         <p>
-          💙 One-time support → <a href="https://www.paypal.com/ncp/payment/A4JUW5LSRUNSW" target="_blank" class="text-blue-600 underline">paypal.me/givewindletter</a>
+          💙 One-time support → <a href="https://paypal.me/givewindletter" target="_blank" class="text-blue-600 underline">paypal.me/givewindletter</a>
         </p>
         <p class="mt-2 italic">There’s no reward. No spotlight. Just kindness, passed on.</p>
       </div>
