@@ -15,22 +15,18 @@
       background: url('https://raw.githubusercontent.com/HYM715-MING/pic/main/06.jpg?auto=format&fit=crop&w=1600&q=80') no-repeat center center fixed;
       background-size: cover;
     }
-
     /* 淡入動畫效果 */
     .fade-in {
       animation: fadeIn 1.5s ease-out forwards;
     }
-
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
     /* 浮動動畫（氣球飄動） */
     .float {
       animation: float 4s ease-in-out infinite;
     }
-
     @keyframes float {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-10px); }
@@ -39,55 +35,70 @@
 </head>
 
 <body class="text-gray-800">
-  <!-- 中央內容區塊 -->
+  <!-- 網頁主體容器：垂直置中排列內容 -->
   <div class="min-h-screen flex flex-col justify-center items-center px-4">
 
-    <!-- 頂部氣球圖示 -->
+    <!-- 飄浮氣球圖示 -->
     <img src="https://cdn-icons-png.flaticon.com/512/3062/3062634.png" alt="balloon" class="w-12 mb-3 float" />
 
-    <!-- 信件表單卡片 -->
+    <!-- 表單卡片容器 -->
     <div class="max-w-md w-full bg-white/70 p-6 rounded-2xl shadow-xl fade-in">
 
-      <!-- 表單標題 -->
+      <!-- 標題 -->
       <h2 class="text-2xl font-bold text-center mb-4">Write a Letter for the Wind</h2>
 
-      <!-- 表單開始 -->
-      <form action="https://formspree.io/f/mnndnqvn" method="POST" class="space-y-4">
+      <!-- 表單開始：不直接送出，而是轉跳到 thankyou 頁面 -->
+      <form id="letterForm" class="space-y-4">
 
-        <!-- 暱稱欄位（可填可不填） -->
+        <!-- 暱稱欄位（選填） -->
         <div>
           <label class="block text-sm font-medium">Who You Are</label>
-          <input type="text" name="nickname" class="w-full border rounded px-3 py-2 mt-1 bg-white/80"
-            placeholder="A whisper in the breeze." />
+          <input type="text" id="nickname" class="w-full border rounded px-3 py-2 mt-1 bg-white/80" placeholder="A whisper in the breeze." />
         </div>
 
         <!-- 心事欄位（必填） -->
         <div>
           <label class="block text-sm font-medium">What’s in your heart</label>
-          <textarea name="message" required class="w-full border rounded px-3 py-2 mt-1 h-32 bg-white/80"
-            placeholder="Write what your soul needs to say."></textarea>
+          <textarea id="message" required class="w-full border rounded px-3 py-2 mt-1 h-32 bg-white/80" placeholder="Write what your soul needs to say."></textarea>
         </div>
 
-        <!-- 回信用 email 欄位（可選） -->
+        <!-- Email欄位（選填，若希望收到回信） -->
         <div>
           <label class="block text-sm font-medium">Would you like the wind to reply?（Email）</label>
-          <input type="email" name="email" class="w-full border rounded px-3 py-2 mt-1 bg-white/80"
-            placeholder="your@email.com" />
+          <input type="email" id="email" class="w-full border rounded px-3 py-2 mt-1 bg-white/80" placeholder="your@email.com" />
         </div>
 
-        <!-- 送出按鈕 -->
+        <!-- CTA 按鈕：儲存輸入值並跳轉 thankyou 頁 -->
         <div class="text-center">
-          <!-- a 標籤在這裡其實不需要，form 會自動提交 -->
-          <button type="submit"
-            class="bg-white/70 hover:bg-white text-blue-600 font-semibold py-2 px-6 rounded-full shadow transition fade-in delay-300">
-            🎈Let Your Feelings Drift
+          <button type="button" onclick="storeAndRedirect()" class="bg-white/70 hover:bg-white text-blue-600 font-semibold py-2 px-6 rounded-full shadow transition fade-in delay-300">
+            🎈 Let Your Feelings Drift
           </button>
         </div>
 
       </form>
-      <!-- 表單結束 -->
-
     </div>
   </div>
+
+  <!-- JavaScript 功能：儲存輸入值至 localStorage 並導向 thankyou.html -->
+  <script>
+    function storeAndRedirect() {
+      const nickname = document.getElementById('nickname').value;
+      const message = document.getElementById('message').value;
+      const email = document.getElementById('email').value;
+
+      if (!message.trim()) {
+        alert("Please write your message before continuing.");
+        return;
+      }
+
+      // 將表單內容暫存至 localStorage
+      localStorage.setItem('nickname', nickname);
+      localStorage.setItem('message', message);
+      localStorage.setItem('email', email);
+
+      // 導向 thankyou 頁面
+      window.location.href = 'thankyou.html';
+    }
+  </script>
 </body>
 </html>
